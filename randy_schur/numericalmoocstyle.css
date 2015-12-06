@@ -20,8 +20,7 @@ div.cell { /* set cell width */
 
 div #notebook { /* centre the content */
     background: #fff; /* white background for content */
-    width: 125
-0px;
+    width: 1250px;
     margin: auto;
     padding-left: 0em;
 }
@@ -49,7 +48,7 @@ div.text_cell_render{
     line-height: 140%;
     font-size: 125%;
     font-weight: 400;
-    width:600px;
+    width:800px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -129,7 +128,7 @@ div.text_cell_render{
     MathJax.Hub.Config({
                         TeX: {
                            extensions: ["AMSmath.js"],
-                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
+                           equationNumbers: { autoNumber: "AMS", useLabelIds: false}
                            },
                 tex2jax: {
                     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
