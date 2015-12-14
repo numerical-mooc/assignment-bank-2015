@@ -17,15 +17,51 @@ def get_Pressure(Uv, Temp, numx, numy,R):
     #
     return P
 #----------------------------------------------------------------------
-def get_Pressure_plot(xg, Pg, P_inf):
-    #
-    fig = pyplot.figure(figsize=(8,5))
-    pyplot.plot(xg, Pg[:,0]/P_inf )
-    pyplot.ylabel('P\Pinf ')
-    pyplot.xlabel('Plate (m)') 
-    pyplot.title('Non-Dimensional Surface Pressure at Converged Solution');
-    
-    return fig
+def get_Pressure_plot(xg,yg, Ren, Pg, P_inf):
+	""" Plots the non-dimensional surface pressure at converged solution,
+	and the non-dimensional trailing edge pressure at converged solution
+	"""
+	fig = pyplot.figure(figsize=(8,5))
+	pyplot.subplots_adjust(hspace=0.5)
+	#
+	pyplot.subplot(2,1,1)
+	pyplot.plot(xg, Pg[:,0]/P_inf )
+	pyplot.ylabel('P\Pinf ')
+	pyplot.xlabel('Plate (m)') 
+	pyplot.title('Figure 1: Non-Dimensional Surface Pressure');
+	
+	pyplot.subplot(2,1,2)
+	pyplot.plot(Pg[-1,:]/P_inf, yg[:]*numpy.sqrt(Ren)/xg[-1] )
+	pyplot.ylabel('Non-Dimensional Y distance')
+	pyplot.xlabel('P\Pinf ') 
+	pyplot.title('Figure 2: Non-Dimensional Trailing Edge Pressure');
+	
+	return fig
+#----------------------------------------------------------------------
+def get_Temperature_plot(xg,yg,Ren,Tg,T_inf):
+	"""Plots Non-dimensionalized temperature at trailing edge
+	"""
+	fig = pyplot.figure(figsize=(8,5))
+	pyplot.plot(Tg[-1,:]/T_inf, yg[:]*numpy.sqrt(Ren)/xg[-1])
+	pyplot.xlabel('T\Tinf')
+	pyplot.ylabel('Non-Dimensional Y distance')
+	pyplot.title('Figure 3: Non-Dimensional Temperature at Trailing Edge');
+	
+	return fig
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+def get_Velocity_plot(xg,yg,Ren, Uf, u_inf):
+	"""Plots Non-dimensionalized velocity at trailing edge
+	"""
+	ut = numpy.zeros_like(yg)
+	ut = (Uf[1,-1,:]/Uf[0,-1,:])
+	fig = pyplot.figure(figsize=(8,5))
+	pyplot.plot(ut[:]/u_inf, yg[:]*numpy.sqrt(Ren)/xg[-1])
+	pyplot.xlabel('u/u_inf')
+	pyplot.ylabel('Non-Dimensional Y distance')
+	pyplot.title('Figure 4: Non-Dimensional Velocity at Trailing Edge');
+	
+	return fig
 #----------------------------------------------------------------------
 def get_cplots(mxg,myg,Uv, Tv, R):
     
