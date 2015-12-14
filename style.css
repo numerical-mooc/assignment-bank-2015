@@ -45,7 +45,7 @@ div.cell.code_cell {
 }
 
 div.text_cell_render{
-    font-family: 'Times New Roman' serif;
+    font-family: 'Times New Roman', serif;
     line-height: 140%;
     font-size: 125%;
     font-weight: 400;
@@ -61,12 +61,13 @@ div.text_cell_render{
     font-family: 'Nixie One', serif;
     font-style:regular;
     font-weight: 400;    
-    font-size: 45pt;
+    font-size: 40pt;
     line-height: 100%;
     color: rgb(0,0,0);
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     display: block;
+    text-align:left;
 }
 
 .text_cell_render h2 {
@@ -78,6 +79,7 @@ div.text_cell_render{
     margin-bottom: 0.1em;
     margin-top: 0.3em;
     display: block;
+    text-align:left;
 }	
 
 
